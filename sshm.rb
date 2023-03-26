@@ -5,20 +5,20 @@
 class Sshm < Formula
   desc ""
   homepage "https://github.com/dhruv160410116084/sshm"
-  version "1.1.5"
+  version "1.1.8"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.5/sshm_1.1.5_Darwin_arm64.tar.gz"
-      sha256 "85047b6b9aa0ad00bbacc248959ba452330097fd884dea17685fcdfc45c977cb"
+    if Hardware::CPU.intel?
+      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.8/sshm_1.1.8_Darwin_x86_64.tar.gz"
+      sha256 "2eb96223bd98bf95a9e13a1c355692d050e1c020baebce70c3697c49d4af7753"
 
       def install
         bin.install "sshm"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.5/sshm_1.1.5_Darwin_x86_64.tar.gz"
-      sha256 "6e4f9f6118b649154decf05e831b6392c3d964c2c51d805fc23c4ee9444c3d8c"
+    if Hardware::CPU.arm?
+      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.8/sshm_1.1.8_Darwin_arm64.tar.gz"
+      sha256 "5657e01ad14929766849a8cd5808e6a661d07f706aa6595ee46cb9e8f69750ca"
 
       def install
         bin.install "sshm"
@@ -27,17 +27,17 @@ class Sshm < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.5/sshm_1.1.5_Linux_x86_64.tar.gz"
-      sha256 "68ce17dc70d7641ba28512d00cafce789da7c216c6ca8c828ead1036242315c4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.8/sshm_1.1.8_Linux_arm64.tar.gz"
+      sha256 "b1e9e128789d6674b807d19134c608cfc11bc335ffb5b276c979fa02afece3c9"
 
       def install
         bin.install "sshm"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.5/sshm_1.1.5_Linux_arm64.tar.gz"
-      sha256 "b20e7a318651326ab63ad0d4c505ec3205d61f4807fdc5acd278058e1cf5055c"
+    if Hardware::CPU.intel?
+      url "https://github.com/dhruv160410116084/sshm/releases/download/v1.1.8/sshm_1.1.8_Linux_x86_64.tar.gz"
+      sha256 "12dd66b2eea565083d82cf471e517b6283d576363dfda1109b234a2a9632764b"
 
       def install
         bin.install "sshm"
